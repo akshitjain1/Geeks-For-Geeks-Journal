@@ -1,21 +1,20 @@
 class Solution {
   public:
     void print_divisors(int n) {
-        vector<int> divisors;
-        
-        for (int i = 1; i * i <= n; i++) {
-            if (n % i == 0) {
-                divisors.push_back(i);
-                if (i != n / i) {  // avoid duplicate for perfect squares
-                    divisors.push_back(n / i);
+        // Code here.
+        vector<int> result;
+        for(int i=1; i<= sqrt(n); i++){
+            if(n%i == 0){
+                result.push_back(i);
+                if(n/i!=i){
+                    result.push_back(n/i);
                 }
             }
         }
-        
-        sort(divisors.begin(), divisors.end());  // print in increasing order
-        
-        for (int d : divisors) {
-            cout << d << " ";
+        sort(result.begin(), result.end());
+        for(int i =  0 ; i<result.size(); i++){
+            cout<<result[i]<<" ";
         }
+        
     }
 };
