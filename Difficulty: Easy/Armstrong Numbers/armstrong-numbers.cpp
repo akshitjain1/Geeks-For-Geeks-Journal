@@ -3,15 +3,17 @@ class Solution {
   public:
     bool armstrongNumber(int n) {
         // code here
-        long num = 0;
-        int temp = n;
-        while(n != 0){
-            int digit = n % 10;
-            num = num + (digit*digit*digit);
+        int sum = 0;
+        int org = n;
+        while(n!=0){
+            int digit = n%10;
+            digit = digit * digit * digit;
+            sum = sum + digit;
             n = n/10;
         }
-        if(num == temp)return true;
-        
+        if(sum == org){
+            return true;
+        }
         return false;
     }
 };
